@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "boschyd"
 include(":app")
+include(":app:lib")
