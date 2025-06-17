@@ -5,10 +5,10 @@ public class Accounts {
         return  a + b;
     }
 
-    public int supriyaAdd(int x, int y){
+    public void supriyaAdd(int x, int y, MobilePhone phoneno){
         try {
             Thread.sleep(15000);
-            return x+y;
+            phoneno.onSuccess(x+y);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

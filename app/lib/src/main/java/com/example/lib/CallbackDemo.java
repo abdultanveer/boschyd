@@ -7,8 +7,17 @@ public class CallbackDemo {
         System.out.println("manishas -- "+mres);
 
         MobilePhone phoneno = new MySecratary();
-        int sres = accounts.supriyaAdd(30,40);
-        System.out.println("supriya--"+sres);
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                accounts.supriyaAdd(30,40,phoneno);
+
+            }
+        }.start();
+        System.out.println("im continuing my class");
+        //int sres = accounts.supriyaAdd(30,40,phoneno);
+        //System.out.println("supriya--"+sres);
     }
 
 
