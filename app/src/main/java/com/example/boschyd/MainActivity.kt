@@ -21,12 +21,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun handleClick(view: View) {
-        var clMain:ConstraintLayout = findViewById(R.id.maincl)
-        Snackbar.make(clMain,"button clicked",Snackbar.LENGTH_SHORT).show()
-        var nameEt:EditText = findViewById(R.id.etName) //taking handle
-        var name:String = nameEt.text.toString()
-        val resultTv:TextView = findViewById(R.id.tvResult)
-        resultTv.setText(name)
+        //explicit intnet
+        var calIntent = Intent(this,CalendarActivity::class.java)
+        startActivity(calIntent)
+//        var clMain:ConstraintLayout = findViewById(R.id.maincl)
+//        Snackbar.make(clMain,"button clicked",Snackbar.LENGTH_SHORT).show()
+//        var nameEt:EditText = findViewById(R.id.etName) //taking handle
+//        var name:String = nameEt.text.toString()
+//        val resultTv:TextView = findViewById(R.id.tvResult)
+//        resultTv.setText(name)
     }
 
     fun dialNo(view: View) {
