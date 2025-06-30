@@ -1,5 +1,7 @@
 package com.example.boschyd
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -25,5 +27,11 @@ class MainActivity : AppCompatActivity() {
         var name:String = nameEt.text.toString()
         val resultTv:TextView = findViewById(R.id.tvResult)
         resultTv.setText(name)
+    }
+
+    fun dialNo(view: View) {
+        //https://developer.android.com/guide/components/intents-common
+        val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:123456789"))
+        startActivity(dialIntent)
     }
 }

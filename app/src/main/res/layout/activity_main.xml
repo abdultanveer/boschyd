@@ -21,11 +21,11 @@
 
     <Button
         android:id="@+id/btnSubmit"
-        android:onClick="handleClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="39dp"
+        android:onClick="handleClick"
         android:text="submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
@@ -39,4 +39,15 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/etName"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDial"
+        android:onClick="dialNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="41dp"
+        android:text="dial"
+        app:layout_constraintStart_toEndOf="@+id/btnSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
