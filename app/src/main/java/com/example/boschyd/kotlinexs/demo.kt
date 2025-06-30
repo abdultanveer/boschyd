@@ -1,4 +1,4 @@
-package com.example.boschyd
+package com.example.boschyd.kotlinexs
 
 fun main() {
     print("hello world")
