@@ -37,4 +37,16 @@ class MainActivity : AppCompatActivity() {
         val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:123456789"))
         startActivity(dialIntent)
     }
+
+
+    fun startServing(view: View) {
+        val intentServ = Intent(applicationContext,MusicService::class.java)
+        startService(intentServ)
+    }
+
+    fun stopService(view: View) {
+        val intentServ = Intent(applicationContext,MusicService::class.java)
+        stopService(intentServ)
+
+    }
 }
