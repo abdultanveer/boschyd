@@ -1,8 +1,12 @@
 package com.example.boschyd
 
+import android.content.ComponentName
 import android.content.Intent
+import android.content.ServiceConnection
 import android.net.Uri
 import android.os.Bundle
+import android.os.IBinder
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -14,6 +18,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
+val TAG = MainActivity::class.java.simpleName
+    private lateinit var mService: MusicService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflation
@@ -41,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
     fun startServing(view: View) {
         val intentServ = Intent(applicationContext,MusicService::class.java)
-        startService(intentServ)
+        bindService(intentServ,serviceConn, BIND_AUTO_CREATE)
+        //startService(intentServ)
     }
 
     fun stopService(view: View) {
@@ -49,4 +57,20 @@ class MainActivity : AppCompatActivity() {
         stopService(intentServ)
 
     }
-}
+
+    private val serviceConn = object : ServiceConnection {
+        override fun onServiceConnected(p0: ComponentName?, nbindr: IBinder?) {
+           // var mService = MusicService() -- instantiating
+            val binderBridge = nbindr as MusicService.LocalBinder //as = typecastinng
+            mService = binderBridge.getService()
+            val result = mService.addMusicService(10,20)
+            Log.i(TAG,"sum is --"+result)
+            Log.i(TAG,"latest score is--"+mService.getCricScore())
+        }
+
+        override fun onServiceDisconnected(p0: ComponentName?) {
+            TODO("Not yet implemented")
+        }
+    }
+
+    }

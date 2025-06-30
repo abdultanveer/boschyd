@@ -3,11 +3,14 @@ package com.example.boschyd
 import android.app.Service
 import android.content.Intent
 import android.nfc.Tag
+import android.os.Binder
 import android.os.IBinder
 import android.util.Log
 
 class MusicService : Service() {
 var TAG = MusicService::class.java.name
+
+    private val nbinder = LocalBinder()
 
     override fun onCreate() {
         super.onCreate()
@@ -21,6 +24,14 @@ var TAG = MusicService::class.java.name
 
     }
 
+    fun addMusicService(firstNo:Int,secondNo:Int):Int{
+        return firstNo + secondNo
+    }
+
+    fun getCricScore():Int{
+        return 192
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         Log.i(TAG,"service destroyed")
@@ -28,6 +39,16 @@ var TAG = MusicService::class.java.name
     }
 
     override fun onBind(intent: Intent): IBinder {
-        TODO("Return the communication channel to the service.")
+        return nbinder
+    }
+
+    //binder = glue= pipe
+    inner class LocalBinder : Binder() {
+
+        // Return this instance of MusicService so clients can call public methods.
+        fun getService(): MusicService
+        {
+            return  this@MusicService
+        }
     }
 }
