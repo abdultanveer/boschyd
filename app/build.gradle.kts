@@ -7,6 +7,10 @@ android {
     namespace = "com.example.boschyd"
     compileSdk = 35
 
+    buildFeatures{
+        aidl = true
+    }
+
     defaultConfig {
         applicationId = "com.example.boschyd"
         minSdk = 24
