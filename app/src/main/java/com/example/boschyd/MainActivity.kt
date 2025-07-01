@@ -20,11 +20,14 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 val TAG = MainActivity::class.java.simpleName
     private lateinit var mService: MusicService
+    var count = 0
+    lateinit var resultTv:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflation
-
+        resultTv = findViewById(R.id.tvResult)
+        resultTv.setText(""+count)
     }
 
     fun handleClick(view: View) {
@@ -73,4 +76,10 @@ val TAG = MainActivity::class.java.simpleName
         }
     }
 
+    fun incrementCount(view: View) {
+        count++
+        resultTv.setText(""+count)
+
     }
+
+}
