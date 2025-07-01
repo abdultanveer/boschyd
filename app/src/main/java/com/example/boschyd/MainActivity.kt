@@ -30,7 +30,7 @@ val TAG = MainActivity::class.java.simpleName
         resultTv = findViewById(R.id.tvResult)
         viewModel = ViewModelProvider(this)[MainViewmodel::class.java]
 
-        resultTv.setText(""+viewModel.count)
+        resultTv.setText(""+viewModel._seconds)
     }
 
     fun handleClick(view: View) {
@@ -80,8 +80,8 @@ val TAG = MainActivity::class.java.simpleName
     }
 
     fun incrementCount(view: View) {
-        viewModel.incrementCount()
-        resultTv.setText(""+viewModel.count)
+        viewModel.startTimer()
+        resultTv.setText(""+viewModel._seconds)
 
     }
 
