@@ -15,19 +15,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 val TAG = MainActivity::class.java.simpleName
     private lateinit var mService: MusicService
-    var count = 0
     lateinit var resultTv:TextView
+    lateinit var viewModel:MainViewmodel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflation
         resultTv = findViewById(R.id.tvResult)
-        resultTv.setText(""+count)
+        viewModel = ViewModelProvider(this)[MainViewmodel::class.java]
+
+        resultTv.setText(""+viewModel.count)
     }
 
     fun handleClick(view: View) {
@@ -77,8 +80,8 @@ val TAG = MainActivity::class.java.simpleName
     }
 
     fun incrementCount(view: View) {
-        count++
-        resultTv.setText(""+count)
+        viewModel.incrementCount()
+        resultTv.setText(""+viewModel.count)
 
     }
 
