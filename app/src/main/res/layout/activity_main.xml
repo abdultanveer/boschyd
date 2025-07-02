@@ -11,8 +11,8 @@
         android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="53dp"
         android:ems="10"
         android:hint="enter name"
         android:inputType="text"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="21dp"
         android:onClick="handleClick"
         android:text="submit"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,21 +34,21 @@
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="34dp"
+        android:layout_marginEnd="51dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/etName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="27dp"
         android:onClick="dialNo"
         android:text="dial"
-        app:layout_constraintStart_toEndOf="@+id/btnSubmit"
+        app:layout_constraintEnd_toStartOf="@+id/btnCount"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <Button
@@ -81,5 +81,56 @@
         android:onClick="incrementCount"
         android:text="increment"
         app:layout_constraintBottom_toBottomOf="@+id/btnDial"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvResult" />
+
+    <EditText
+        android:id="@+id/inUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <EditText
+        android:id="@+id/inNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inUsername"
+        android:hint="Number"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inUsername" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:onClick="saveDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inNumber"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="84dp"
+        android:layout_toStartOf="@+id/btnGet"
+        android:layout_toLeftOf="@+id/btnGet"
+        android:text="SAVE"
+        app:layout_constraintStart_toEndOf="@+id/btnGet"
+        app:layout_constraintTop_toBottomOf="@+id/inNumber" />
+
+    <Button
+        android:id="@+id/btnGet"
+        android:onClick="getDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inNumber"
+        android:layout_alignEnd="@+id/inNumber"
+        android:layout_alignRight="@+id/inNumber"
+        android:layout_marginStart="16dp"
+        android:text="GET"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

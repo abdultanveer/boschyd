@@ -11,6 +11,12 @@ android {
         aidl = true
     }
 
+    packaging {
+        resources {
+            pickFirst("META-INF/gradle/incremental.annotation.processors")
+        }
+    }
+
     defaultConfig {
         applicationId = "com.example.boschyd"
         minSdk = 24
@@ -46,7 +52,15 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.dagger.android)
+    implementation(libs.dagger.compiler)
+     implementation(libs.dagger.android.processor)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+//    implementation 'com.google.dagger:dagger-android:2.38.1'
+//    implementation 'com.google.dagger:dagger-android-support:2.38.1' // if you use the support libraries
+//    annotationProcessor 'com.google.dagger:dagger-android-processor:2.38.1'
+//    annotationProcessor 'com.google.dagger:dagger-compiler:2.38.1'
 }
